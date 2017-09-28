@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Taquin 0.2</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/grid.css">
+  <style type="text/css">
+  .ici
+  {
+    background: #aaa;
+    padding-bottom: 5px;
+    margin-top: 2px;
+  }
+  .image{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin:0;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .6);
+    background-color: white;
+    transition: all .6s;
+      }
+  .image:not(.active):hover
+  {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin:0;
+    padding:0px;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.7);
+    border: 1px solid #aaa;
+    
+  }
+  .liste-image{
+    /* border: 1px solid orange; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+  }
+  .liste-image-principale
+  {
+    background: #E7E7E7;
+  }
+  .inactive-image
+  {
+    border: 1px solid rgba(255, 255, 255, .6);
+  }
+  .active-image
+  {
+    border: 2px dashed #aaa;
+  }  
+
+
+    .list-configuration-principale
+    {
+      border-bottom:2px solid #ccc;
+      border-top:2px solid #ccc;
+      margin-top: 4px;
+    }
+    .liste-configuration
+    {
+      border-left:2px solid #ccc;
+      border-right:2px solid #ccc;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .couple{
+      padding: 5px;
+      border: 1px solid #ccc;
+      display: block;
+      width: 218px;
+      margin:auto; 
+
+        }
+    .configuration{
+        height: 100px;
+        width: 100px;
+        /* border: 1px solid red; */
+        padding:6px 2px 2px 3px;
+        display: inline-block;
+        background: white;
+        }
+    .configuration .piece-c
+    {
+      height: 28px;
+      width: 28px;
+      display: inline-block;
+      border: 1px solid #eee;
+      background: #eee;
+      margin-left: 2px;
+      margin-top: 1px;
+      text-align: center;
+    }
+    .jeu{
+      background: url('img/jeu.png');
+      background-repeat: no-repeat;
+      display: block;
+      height: 80px;
+      width: 55px;
+      background-size:contain;
+      position: absolute;
+      z-index: 10;
+    }
+
+  </style>
+</head>
+<body>
+	<div class="container-fluid">
+    <div class="home">
+      
+    </div>
+    <div class="liste-image-principale row">
+           <div class="liste-image col-lg-offset-1 col-xs-offset-1 col-sm-offset-0 col-md-offset-0">
+             <div class="image active-image" style="background:white url('img/test0.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+             <div class="image" style="background:white  url('img/test1.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test2.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test3.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test4.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test5.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test6.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test7.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test8.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white  url('img/test9.jpg');background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+           <div class="image" style="background:white;background-size: contain;background-repeat: no-repeat;background-position: center;"></div>
+
+           </div>   
+      </div> 
+   
+    <div class="list-configuration-principale row">
+          <div class="liste-configuration col-lg-10 col-lg-offset-1 col-sm-10 col-md-offset-1 col-xs-12">
+                <div class="col-md-5 col-sm-5 col-lg-3 col-xs-10 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-1" style="border:1px solid #aaa;background:#ccc;padding-top: 5px;padding-bottom: 5px;">
+                  <div class="couple">
+                        <ul class="configuration initiale">
+                          <li class="piece-c">1</li>
+                          <li class="piece-c">2</li>
+                          <li class="piece-c">3</li>
+                          <li class="piece-c">4</li>
+                          <li class="piece-c">5</li>
+                          <li class="piece-c">6</li>
+                          <li class="piece-c">7</li>
+                          <li class="piece-c">8</li>
+                          <li class="piece-c">0</li>
+                        </ul>
+                       <ul class="configuration finale">
+                          <li class="piece-c">2</li>
+                          <li class="piece-c">5</li>
+                          <li class="piece-c">3</li>
+                          <li class="piece-c">4</li>
+                          <li class="piece-c">1</li>
+                          <li class="piece-c">6</li>
+                          <li class="piece-c">0</li>
+                          <li class="piece-c">7</li>
+                          <li class="piece-c">8</li>
+                        </ul>
+                </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-lg-2 col-md-offset-1 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="padding-top: 2px;">
+             <div class="btn btn-info col-md-8 col-sm-8 saisir col-xs-offset-1  col-xs-10 col-lg-offset-0 col-sm-offset-0 col-md-offset-0" style="margin-top:5px;">Saisir<span class="glyphicon glyphicon-plus" style="padding-left: 5px;"></span></div>
+            <div class="btn btn-info col-md-8 col-sm-8 generer col-xs-offset-1  col-xs-10 col-lg-offset-0 col-sm-offset-0 col-md-offset-0" style="margin-top:5px;">Génerer <span class="glyphicon glyphicon-repeat" style=""></span></div>
+            <div class="btn btn-info col-md-8 col-sm-8 pause  col-xs-10 col-xs-offset-1  col-lg-offset-0 col-sm-offset-0 col-md-offset-0" style="margin-top:5px;">Pause <span class="glyphicon glyphicon-pause"></span></div>
+            <div class="btn btn-info col-md-8 col-sm-8 simuler  col-xs-10 col-xs-offset-1  col-lg-offset-0 col-sm-offset-0 col-md-offset-0" style="margin-top:5px;">Simuler<span class="glyphicon glyphicon-play" style="padding-left: 10px;"></span> </div>
+          </div>
+          </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-4 col-lg-4 col-xs-12 col-xs-offset-0 col-sm-offset-2 col-sm-7 col-md-offset-3 col-md-6  ">
+        <div class="col-lg-5 col-xs-6 col-xs-offset-0" style="border-left:1px dashed #A5A5A5;border-right: 1px dashed #A5A5A5;">Nombre de coût: <span class="badge nbr_cout">0</span></div>
+           <div class="col-lg-7 col-xs-6 col-xs-offset-0 " style="border-left:1px dashed #A5A5A5;border-right: 1px dashed #A5A5A5;">Nombre de coût effectue: <span class="badge nbr_cout_effectue">0</span></div>
+      </div>
+    </div>
+		<div class="row ici">
+			
+		</div>
+    
+	</div>
+   </div> 
+</body>
+<script src="js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="js/viewTaquin.js" type="text/javascript"></script>
+<script src="js/Generateur.js" type="text/javascript"></script>
+<script src="js/afficherTableau.js" type="text/javascript"></script>
+<script src="js/File.js"></script>
+<script src="js/Noeud.js"></script>
+<script src="js/AStar.js"></script>
+<script>
+function Taquin()
+{
+	this.taille;
+	this.espacement;
+	this.configuration_initiale;
+	this.configuration_final;
+}
+
+
+
+	jQuery(document).ready(function($) {
+
+
+      var g = new Generateur({taille:3});
+      g.start();
+
+      var platforme = 
+      {
+         pause:false,
+         generer:0,
+         g:new  g.create.Taquin_({
+        etat: [
+            [7,8,3],
+            [6,4,5],
+            [1,2,0],
+             ],
+        final:
+             [
+            [1,2,3],
+            [4,5,6],
+            [7,8,0],
+             ],
+         saisir:false,
+      }),
+         simuler:false,
+         clique:0
+      };
+      /*
+      [
+            [6,4,7],
+            [1,5,8],
+            [2,3,0],
+             ]
+
+              etat:[
+            [4,6,7],
+            [1,8,5],
+            [2,3,0]
+            ],
+        final:
+             [
+            [1,2,3],
+            [4,5,6],
+            [7,8,0],
+             ]
+     */ 
+       // platforme.generer = Math.floor(Math.random()*(50));
+       // platforme.g = g.object[platforme.generer];
+        $(".initiale").afficherTableau("piece-c",platforme.g.etat);
+        $(".finale").afficherTableau("piece-c",platforme.g.final);
+
+        var configuration = 
+    {
+      taille:3,
+      Button:
+      {
+        espacement:5,
+        marginTop:5,
+        marginLeft:0,
+      },
+      background:"url('img/test0.jpg')",
+      taquin:
+      {
+        classNameFinal:'taquin_final',
+        classNameJeu  :'taquin_jeu',
+      },
+      currentTable: platforme.g.etat  ,
+      finalTable: platforme.g.final ,
+      displayNumero:true,
+    };
+      //Evement ---------------------------------------------------------->
+      $('.saisir').click(function(event) {
+        platforme.saisir =(platforme.saisir == true)?false:true;
+        if(platforme.saisir)
+        {
+          $('.saisir').html('Transferer<span class="glyphicon glyphicon-arrow-right" style="padding-left: 5px;"></span>');
+          $(".initiale").videTableau("piece-c",configuration.taille);
+          $(".finale").videTableau("piece-c",configuration.taille);
+    
+          $(".initiale").find('.piece-c').keydown(function(event) {
+            if(event.keyCode == 13)
+              event.preventDefault();
+              $(event.target).select();
+            
+           if(parseInt($(event.target).html()) == 0)
+           {
+              $(event.target).select();
+           }
+          });
+          $(".finale").find('.piece-c').keydown(function(event) {
+            if(event.keyCode == 13)
+              event.preventDefault();
+              $(event.target).select();
+            
+           if(parseInt($(event.target).html()) == 0)
+           {
+              $(event.target).select();
+              //$(event.target).html(event.keyCode);  
+           }
+          });
+        }else {
+          $('.saisir').html('Saisir<span class="glyphicon glyphicon-plus" style="padding-left: 5px;"></span>');
+          var k = 0;
+              for (var j = 0; j < 2; j++) {
+                 k = 0;
+                 for(var i = 0;i<configuration.taille;i++)
+                {  
+                  for(var o = 0;o<configuration.taille;o++)
+                  {
+                    if(j == 0)
+                    configuration.currentTable[i][o] =parseInt($(".initiale").find('.piece-c').eq(k).val());  
+                    if(j == 1)
+                    configuration.finalTable[i][o] =parseInt($(".finale").find('.piece-c').eq(k).val());
+                    k++;
+                  }
+                }
+              }
+        }
+
+      });
+      $('.image').click(function(event) {
+        configuration.background = $(event.target).css('backgroundImage');
+          $('.ici').genererButton({taquin:"."+configuration.taquin.classNameJeu,tableau:configuration.currentTable,taquin_final:"."+configuration.taquin.classNameFinal});
+          $('.ici').genererButton({taquin:"."+configuration.taquin.classNameFinal,tableau:configuration.finalTable});
+               $('.jeu').css({
+                 marginTop:-3+'px',
+                 marginLeft: -3+'px'
+               });
+         for (var i = 0; i < $('.liste-image').find('.image').length; i++) {
+           $('.liste-image').find('.image').eq(i).removeClass('active-image');
+         }
+          $(event.target).addClass('active-image');
+          $('.piece').css('line-height',$('.piece').width()+'px');
+      });
+
+     $(window).resize(function(event) {
+         $('.ici').viewTaquin(configuration);
+         $('.ici').genererButton({taquin:"."+configuration.taquin.classNameJeu,tableau:configuration.currentTable,taquin_final:"."+configuration.taquin.classNameFinal});
+         $('.ici').genererButton({taquin:"."+configuration.taquin.classNameFinal,tableau:configuration.finalTable});
+               $('.jeu').css({
+                 marginTop:-3+'px',
+                 marginLeft: -3+'px'
+               });
+         $('.piece').css('line-height',$('.piece').width()+'px');
+
+       });
+      $('.generer').click(function(event) {
+        platforme.clique = 0;
+        platforme.generer = Math.floor(Math.random()*(50));
+        platforme.g = g.object[platforme.generer];
+        $('.nbr_cout').html(0);
+        $('.nbr_cout_effectue').html(0);
+        $(".initiale").afficherTableau("piece-c",platforme.g.etat);
+        $(".finale").afficherTableau("piece-c",platforme.g.final);
+        configuration.currentTable = platforme.g.etat;
+        configuration.finalTable   = platforme.g.final;
+         $('.ici').genererButton({taquin:"."+configuration.taquin.classNameFinal,tableau:configuration.finalTable});
+          $('.ici').genererButton({taquin:"."+configuration.taquin.classNameJeu,tableau:configuration.currentTable,taquin_final:"."+configuration.taquin.classNameFinal});         
+                           $('.jeu').css({
+                 marginTop:-3+'px',
+                 marginLeft: -3+'px'
+               });
+         $('.piece').css('line-height',$('.piece').height()+'px');
+      });
+      $('.pause').click(function(event) {
+
+        platforme.pause =(platforme.pause == true)?false:true;
+        if(platforme.pause == false)
+        {
+          $('.pause').html("Pause <span class='glyphicon glyphicon-pause'></span>");
+        }else {
+          $('.pause').html("Play <span class='glyphicon glyphicon-play'></span>");
+        }
+      });
+
+      var IA = new  AStar();
+      $('.simuler').click(function(event) {
+      var resultat=IA.start( 
+                  configuration.currentTable
+        ,
+                  configuration.finalTable
+            );    
+    var r =resultat;
+    var etat = new Array();
+    var i=0;
+    while(r!=null)
+        {
+            etat.push(r.etat);
+            r= r.parent;
+            i++;
+        }
+    for (var i = 0; i < etat.length; i++) {
+        IA.afficher(etat[i]);
+    }
+    console.log(i);
+    var i = etat.length-1;
+    var o = 0;
+    $('.nbr_cout').html(i);
+    // $('.badge nbr_cout_effectue').html("0");
+    setInterval(function(){
+      if(i>-1 && !platforme.pause)
+      {
+          configuration.currentTable = etat[i];
+          $('.ici').genererButton({taquin:"."+configuration.taquin.classNameJeu,tableau:etat[i],taquin_final:"."+configuration.taquin.classNameFinal});
+          $('.ici').genererButton({taquin:"."+configuration.taquin.classNameFinal,tableau:configuration.finalTable});
+          i--;
+          $('.nbr_cout_effectue').html(o);
+          o++;
+          $('.jeu').css({
+                 marginTop:-3+'px',
+                 marginLeft: -3+'px'
+               });
+          // platforme.pause=true;  
+      }
+         $('.piece').css('line-height',$('.piece').height()+'px');
+    },400)
+      });
+         $('.ici').viewTaquin(configuration);
+       	// $('.taquin_jeu').viewTaquin(configuration,configuration.tableau);
+   	// console.log(resultat);
+         $('.jeu').css({
+       marginTop:-3+'px',
+       marginLeft: -3+'px'
+     });
+
+
+    $("."+configuration.taquin.classNameJeu).mousedown(function(e)
+    {
+    e.preventDefault();
+    if($(e.target).attr('class') == 'piece' && !platforme.false)
+      {
+      var btnCasV = IA.findPlace(configuration.currentTable,0);
+      var posBtn =IA.findPlace(configuration.currentTable,$(e.target).attr('data-value'));
+      var modif  =false;
+         if((posBtn.x-1>=0))
+             {
+        if((posBtn.x-1)==btnCasV.x && posBtn.y==btnCasV.y)
+        {
+          configuration.currentTable[posBtn.y][posBtn.x-1] = configuration.currentTable[posBtn.y][posBtn.x];
+          configuration.currentTable[posBtn.y][posBtn.x]   = 0;
+          modif= true;
+
+        }                
+             }
+
+             if((posBtn.y-1>=0)&& posBtn.x==btnCasV.x)
+             {
+                if((posBtn.y-1)==btnCasV.y)
+        {
+          configuration.currentTable[posBtn.y-1][posBtn.x] = configuration.currentTable[posBtn.y][posBtn.x];
+          configuration.currentTable[posBtn.y][posBtn.x]   = 0;
+            modif = true;
+        }
+
+             }
+    
+             if((posBtn.x+1)<configuration.taille && posBtn.y==btnCasV.y)
+             {
+              if((posBtn.x+1)==btnCasV.x)
+        {
+          configuration.currentTable[posBtn.y][posBtn.x+1] = configuration.currentTable[posBtn.y][posBtn.x];
+          configuration.currentTable[posBtn.y][posBtn.x]   = 0;
+            modif = true;
+        }
+             }
+
+             if((posBtn.y+1)<configuration.taille && posBtn.x==btnCasV.x)
+             {
+                if((posBtn.y+1)==btnCasV.y)
+        {
+          configuration.currentTable[posBtn.y+1][posBtn.x] = configuration.currentTable[posBtn.y][posBtn.x];
+          configuration.currentTable[posBtn.y][posBtn.x]   = 0; 
+            modif = true;
+        }
+             }
+       if(modif == true)         
+       {     
+        $('.ici').genererButton({taquin:"."+configuration.taquin.classNameJeu,tableau:configuration.currentTable,taquin_final:"."+configuration.taquin.classNameFinal});
+                  $('.jeu').css({
+                 marginTop:-3+'px',
+                 marginLeft: -3+'px'
+               });
+         $('.piece').css('line-height',$('.piece').width()+'px');
+                  
+        modif = false;
+       platforme.clique++;
+       $('.nbr_cout_effectue').html(platforme.clique);
+    // document.querySelector(".nombre_clique").innerHTML=clique;
+       }
+   }
+  });
+	});
+</script>
+</html>
