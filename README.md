@@ -1,1 +1,2 @@
-# taquin_a_star_IA
+# Taquin IA algo A star en javascript
+
